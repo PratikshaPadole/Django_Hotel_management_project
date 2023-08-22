@@ -1,0 +1,41 @@
+{% extends 'home.html' %}
+{% load static %}
+{% block p %}
+<style>
+    table tr td input{
+    margin:10px 10px;
+    }
+    button:hover{
+    background-color:orange;
+    }
+    h2{
+    color:violet;
+    }
+    body{
+    background-image: url({% static 'images/h2.jpg' %});
+    }
+
+</style>
+
+
+
+<center><div class="f1" >
+<form method="POST" novalidate style="margin-top:170px;">
+    {% csrf_token %}
+    <table>
+        <tr><td><h2> Signin Here !!</h2></td></tr>
+        {% for f in form %}
+        <tr>
+            <td style="font-size:22px; font-weight:600;">{{f.label_tag}}</td>&nbsp;
+            <td style="background-color:litegrey;margin:10px 10px;padding:10px 10px; border-radius:9px;">{{f}}</td>&nbsp;
+            <td>{{f.errors}}</td>
+            </tr>
+      {% endfor %}
+    </table>
+
+   <input type="submit"style="margin:10px 10px;margin-left:100px;padding:10px 20px;border-radius:9px;border-color:pink;" class="button">
+   </form>
+</div>  </center>
+
+{% endblock p %}
+

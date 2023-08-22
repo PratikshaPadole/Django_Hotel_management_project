@@ -1,0 +1,80 @@
+{% extends 'home.html' %}
+{% load static %}
+{% block about %}
+<style>
+
+  .card{
+  display:flex;
+  margin:20px 20px;
+  padding:10px 10px;
+  border:1px solid pink;
+  box-shadow:1.5px 1.5px 3px red;
+  }
+ .container_div {
+  max-width:1424px;
+   margin:20px 20px;
+  padding:10px 10px;
+  border:1px solid green;
+  box-shadow:2px 2px 3.5px violet;
+
+}
+.heroContent {
+  position: absolute;
+  top: 30%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+}
+
+</style>
+<div class="">
+  <div class="container_div">
+  <div class="row">
+    <div class="col-sm-12">
+      <img src="{% static 'images/sun.jpg' %}" alt="test" class="img-fluid"width="100%" height="400px">
+      <div class="heroContent">
+        <h1>RESORT BOOKING</h1>
+        <h3>#ABOUT US</h3>
+        <p class="pHero">
+        This is the first line in the jumbotron.<br>
+        The second line appears underneath the first line.
+        </p>
+
+      </div>
+    </div>
+  </div>
+</div>
+  <div class="card-deck">
+  <div class="card">
+    <img class="card-img-top" src="{% static 'images/sun.jpg' %}" alt="Card image cap" height="250px" width="300px">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+    </div>
+     <img class="card-img-top" src="{% static 'images/sun.jpg' %}" alt="Card image cap" height="250px" width="300px">
+     <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+    </div>
+
+  </div>
+  <div class="card">
+    <img class="card-img-top" src="{% static 'images/sun.jpg' %}" alt="Card image cap"height="250px" width="300px">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+    </div>
+  </div>
+  <div class="card">
+    <img class="card-img-top" src="{% static 'images/sun.jpg' %}" alt="Card image cap" height="250px" width="300px">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+    </div>
+  </div>
+</div>
+</div>
+{% endblock %}

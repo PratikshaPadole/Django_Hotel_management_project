@@ -1,0 +1,96 @@
+{% load static %}
+{% block body %}
+<link rel = stylesheet href = "//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+  <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+
+  <script>
+    $(document).ready( function () {
+    $('#myTable').DataTable();
+} );
+  </script>
+
+<style>
+.id2 {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+   border-radius:10px;
+  border:1px solid #bbb;
+
+}
+
+.id1 {
+  float: left;
+  border-right:1px solid #bbb;
+}
+.id2 {
+
+  float: left;
+  border-left:1px solid #bbb;
+}
+
+li:last-child {
+  border-right: none;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+   border-radius:10px;
+}
+
+.active {
+  background-color: #4CAF50;
+  border-radius:10px;
+}
+</style>
+
+<ul class="id2">
+   <li class="id1"><a href="{% url 'RoomList' %}">Room_list</a></li>
+   <li class="id1"><a href="{% url 'RoomList' %}">Booking_list</a></li>
+  <li class="id1"><a href="{% url 'log_out' %}">Logout</a></li>
+  <li class="id2" style="margin-left:600px"><a href="" style="color:white"><strong style="font-size:18px;font-family:cursive">Welcome {{request.user.username}}</strong></a></li>
+</ul><br><br>
+
+<div class="cotent">
+    <div class="heading">
+        <h1>Your Booking</h1>
+
+    </div>
+</div>
+{% for booking in booking_list %}
+  <div class="card">
+    <img src="https://images.pexels.com/photos/164595/pexels-photo-164595.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" class="card-img-top" alt="Hollywood Sign on The Hill"/>
+    <div class="card-body">
+      <h2 class="card-title">Delux Rum</h2>
+        <div class="category">
+           <h3>{{ booking.get_room_category }}</h3>
+       </div>
+
+       <div class="form">
+           <h3>Form:{{ booking.check_in  }}</h3>
+       </div>
+        <div class="to">
+           <h3>To:{{ booking.check_out }}</h3>
+       </div>
+
+        <div class="capacity">
+           <h3> Capacity :{{booking.room.capacity }}</h3>
+       </div>
+     <div class="cancel"><a href="{{booking.get_cancel_booking_url}}" class="invisible"><h3>Cancel Booking</h3></a></div>
+
+    </div>
+  </div>
+
+{% endfor %}
+{% endblock %}
